@@ -2,8 +2,8 @@
 $("main").slideDown(1000);
 $("#save").on("click", function () {
   alert("save");
-  const v = $("#textarea").val();
-  localStrage.setItem("memo", v);
+  const v = $("#text").val();
+  localStorage.setItem("memo", v);
 });
 $("#clear").on("click", function () {
   localStorage.removeItem("memo");
