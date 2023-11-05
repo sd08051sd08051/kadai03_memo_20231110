@@ -1,3 +1,20 @@
+const a = ["つじ田人形町店", "麺屋周郷", "六厘舎"];
+a.push("朧月"); //後ろに追加するもの
+console.log(a);
+
+// function test() {
+//   const str = "I don't know func";
+//   alert(str);
+// }
+// test(); 繰り返して使うものはなるべくfuncにしておくべき
+
+// function add() {
+//   const n = 10 + 10;
+//   alert(n);
+// }
+
+// add();
+
 //////////レビュー入力エリア//////////
 $("main").slideDown(1000);
 $("#save").on("click", function () {
