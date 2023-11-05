@@ -7,11 +7,11 @@ $("#save").on("click", function () {
 });
 $("#clear").on("click", function () {
   localStorage.removeItem("memo");
-  $("#textarea").val("");
+  $("#text").val("");
   alert("clear");
 });
 
-//////////グラフ表示エリア//////////
+//////////グラフ表示エリア(棒グラフ)//////////
 
 let ctx = $("#chart");
 let mychart = new Chart(ctx, {
@@ -58,4 +58,54 @@ let mychart = new Chart(ctx, {
     },
   },
 });
-//////////グラフ表示エリア//////////
+
+//////////グラフ表示エリア(棒グラフ)//////////
+
+//////////グラフ表示エリア(円グラフ)//////////
+
+// let pichart = $("#pichart");
+// let mychart2 = new Chart(ctx, {
+//   type: "pie",
+//   //   描画するグラフの種類(pie:円グラフ、line:折れ線グラフ、bar:棒グラフ、など)
+//   data: {
+//     labels: ["正味作業", "付随作業"],
+//     datasets: [
+//       {
+//         label: "つじ田人形町店",
+//         data: [4, 3],
+//         backgroundColor: "rgba(176, 110,  30, 1)",
+//       },
+//       // {
+//       //   label: "麺屋周郷",
+//       //   data: [5, 2],
+//       //   backgroundColor: "rgba( 31, 167, 165, 1)",
+//       // },
+//       // {
+//       //   label: "六厘舎",
+//       //   data: [5, 5],
+//       //   backgroundColor: "rgba(241, 107, 141, 1)",
+//       // },
+//     ],
+//   },
+//   options: {
+//     title: {
+//       display: true,
+//       text: "つけ麺の店舗比較表",
+//     },
+//     scales: {
+//       yAxes: [
+//         {
+//           ticks: {
+//             suggestedMax: 5,
+//             suggestedMin: 0,
+//             stepSize: 1,
+//             callback: function (value, index, values) {
+//               return value + "";
+//             },
+//           },
+//         },
+//       ],
+//     },
+//   },
+// });
+//////////グラフ表示エリア(円グラフ)//////////
