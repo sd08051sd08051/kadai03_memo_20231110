@@ -30,6 +30,7 @@ Google Mapだと総合評価しか出ないので、各要素で評価ができ�
 - [tips]
 - [参考記事]
 - グラフ表示　https://www.chartjs.org/
+- マージする時の設定　https://zenn.dev/ttak/articles/025319bf5371b0
 
 
 ### おまけ
