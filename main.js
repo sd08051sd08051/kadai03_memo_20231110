@@ -2,21 +2,9 @@ const a = ["つじ田人形町店", "麺屋周郷", "六厘舎"];
 a.push("朧月"); //後ろに追加するもの
 console.log(a);
 
-// function test() {
-//   const str = "I don't know func";
-//   alert(str);
-// }
-// test(); 繰り返して使うものはなるべくfuncにしておくべき
-
-// function add() {
-//   const n = 10 + 10;
-//   alert(n);
-// }
-
-// add();
-
 //////////レビュー入力エリア//////////
 $("main").slideDown(1000);
+
 $("#save").on("click", function () {
   alert("save");
   const v = $("#text").val();
@@ -27,6 +15,43 @@ $("#clear").on("click", function () {
   $("#text").val("");
   alert("clear");
 });
+
+//////////レビュー入力エリア//////////
+
+//////////レビュー点数付けエリア//////////
+// function selectBoxCreate(start, end) {
+//   let str = "";
+//   for (let i = start; i < end; i++) {
+//     str += `<option>${i}</option>`;
+//   }
+//   return str;
+// }
+
+// const taste = selectBoxCreate(1, 6);
+// const access = selectBoxCreate(1, 6);
+// const time = selectBoxCreate(1, 6);
+// const cost = selectBoxCreate(1, 6);
+// const efficiency = selectBoxCreate(1, 6);
+
+// 各セレクト要素のためにこの関数を呼び出します
+Ratings("taste");
+Ratings("access");
+Ratings("time");
+Ratings("cost");
+Ratings("efficiency");
+
+function Ratings(selectId) {
+  const select = document.getElementById(selectId);
+
+  if (select) {
+    for (let i = 1; i <= 5; i++) {
+      const option = document.createElement("option");
+      option.value = i;
+      option.textContent = i;
+      select.appendChild(option);
+    }
+  }
+}
 
 //////////グラフ表示エリア(棒グラフ)//////////
 
@@ -57,7 +82,7 @@ let mychart = new Chart(ctx, {
   options: {
     title: {
       display: true,
-      text: "つけ麺の店舗比較表",
+      text: "ラーメン店舗比較表",
     },
     scales: {
       yAxes: [
@@ -126,3 +151,37 @@ let mychart = new Chart(ctx, {
 //   },
 // });
 //////////グラフ表示エリア(円グラフ)//////////
+
+// function test() {
+//   const str = "I don't know func";
+//   alert(str);
+// }
+// test(); 繰り返して使うものはなるべくfuncにしておくべき
+
+// function add() {
+//   const n = 10 + 10;
+//   alert(n);
+// }
+// add();
+
+//繰り返し処理で、各要素を評価する
+// function selectBoxCreate(start, end) {
+//   let str = "";
+//   for (let i = start; i < end; i++) {
+//     str += `<option>${i}</option>`;
+//   }
+//   return str;
+
+// }
+
+// selectBoxCreate{1970,3000};
+// selectBoxCreate{1,13};
+// selectBoxCreate{1,32};
+
+// function addition(a, b) {
+//   const n = a + b;
+//   return n;
+// }
+
+// const num = addition(100, 300);
+// console.log(num);

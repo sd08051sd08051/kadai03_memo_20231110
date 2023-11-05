@@ -2,9 +2,10 @@
   width: 600px;
 }
 
-.title {
+.shopname {
   text-align: center;
   font-size: 24px;
+  margin-bottom: 10px;
 }
 
 * {
@@ -44,6 +45,7 @@ textarea {
   border: 1px solid #ccc;
   resize: none;
   font-size: 15px;
+  margin-top: 10px;
 }
 
 .button-area {
