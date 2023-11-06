@@ -6,34 +6,27 @@ console.log(a);
 $("main").slideDown(1000);
 
 $("#save").on("click", function () {
-  alert("save");
-  const v = $("#text").val();
-  localStorage.setItem("memo", v);
+  const value = $("#value").val();
+  const text = $("#text").val();
+  localStorage.setItem(value, text);
+  const html = `
+  <li>
+  <p>${value}<p>
+              <p>${text}<p>
+                </li>
+                `;
+  $("#list").append(html);
 });
+
 $("#clear").on("click", function () {
-  localStorage.removeItem("memo");
-  $("#text").val("");
-  alert("clear");
+  localStorage.clear();
+  $("#list").empty("");
 });
 
 //////////レビュー入力エリア//////////
 
-//////////レビュー点数付けエリア//////////
-// function selectBoxCreate(start, end) {
-//   let str = "";
-//   for (let i = start; i < end; i++) {
-//     str += `<option>${i}</option>`;
-//   }
-//   return str;
-// }
+//////////レビューレーティングエリア//////////
 
-// const taste = selectBoxCreate(1, 6);
-// const access = selectBoxCreate(1, 6);
-// const time = selectBoxCreate(1, 6);
-// const cost = selectBoxCreate(1, 6);
-// const efficiency = selectBoxCreate(1, 6);
-
-// 各セレクト要素のためにこの関数を呼び出します
 Ratings("taste");
 Ratings("access");
 Ratings("time");
@@ -52,6 +45,7 @@ function Ratings(selectId) {
     }
   }
 }
+//////////レビューレーティングエリア//////////
 
 //////////グラフ表示エリア(棒グラフ)//////////
 
