@@ -8,11 +8,11 @@ $("main").slideDown(1000);
 $("#save").on("click", function () {
   const text = $("#text").val();
   const shopname = $("#shopname option:selected").val();
-  const taste = parseInt($("#taste").val());
-  const access = parseInt($("#access").val());
-  const time = parseInt($("#time").val());
-  const cost = parseInt($("#cost").val());
-  const efficiency = parseInt($("#efficiency").val());
+  var taste = parseInt($("#taste").val());
+  var access = parseInt($("#access").val());
+  var time = parseInt($("#time").val());
+  var cost = parseInt($("#cost").val());
+  var efficiency = parseInt($("#efficiency").val());
 
   const A = taste + access + time + cost + efficiency;
   const B = taste + cost;
@@ -40,7 +40,10 @@ $("#save").on("click", function () {
      <p>正味: ${D} ％</p>
   </li>
   `;
+
   $("#list").append(html);
+  mychart.data.datasets[0].data = [taste, access, time, cost, efficiency];
+  mychart.update();
 });
 
 $("#clear").on("click", function () {
@@ -121,21 +124,21 @@ let mychart = new Chart(ctx, {
   type: "bar",
   //   描画するグラフの種類(pie:円グラフ、line:折れ線グラフ、bar:棒グラフ、など)
   data: {
-    labels: ["麺の湯がき", "水気を切る", "皿準備", "盛り付け", "歩行"],
+    labels: ["茹で時間", "水気を切る", "皿準備", "盛り付け", "歩行"],
     datasets: [
       {
         label: "つじ田人形町店",
-        data: [40, 30, 50, 30, 50],
+        data: [taste, access, time, cost, efficiency],
         backgroundColor: "rgba(176, 110,  30, 1)",
       },
       {
         label: "麺屋周郷",
-        data: [50, 20, 20, 40, 40],
+        data: [30, 20, 20, 32, 10],
         backgroundColor: "rgba( 31, 167, 165, 1)",
       },
       {
         label: "篝銀座店",
-        data: [50, 50, 10, 20, 50],
+        data: [27, 45, 18, 15, 16],
         backgroundColor: "rgba(241, 107, 141, 1)",
       },
     ],

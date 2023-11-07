@@ -1,5 +1,6 @@
 .container {
   width: 600px;
+  background-color: #f0e7e7;
 }
 
 .ramen {
@@ -104,7 +105,7 @@ h1 {
 
 .right-image img {
   width: 250px; /* 画像の幅を設定 */
-  height: 250px; /* 画像の高さを設定 */
+  height: 200px; /* 画像の高さを設定 */
   margin-left: 20px; /* 画像と他の要素の間隔を調整 */
   margin-left: 20px;
 }
