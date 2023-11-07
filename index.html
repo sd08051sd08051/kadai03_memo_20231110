@@ -10,34 +10,67 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="title">ラーメン評価APP</h1>
+      <div class="ramen">
+        <img
+          class="left-image"
+          src="image/pngtree-restaurant-poster-background-material-image_142529.jpg"
+          alt=""
+        />
+        <h1 class="title">トヨタ生産方式✖️ラーメン店作業効率向上APP</h1>
+        <img
+          class="right-image1"
+          src="image/pngtree-restaurant-poster-background-material-image_142529.jpg"
+          alt=""
+        />
+      </div>
+
+      <div class="pi">
+        <div class="right-image">
+          <img src="./image/efficiency.png" alt="" />
+        </div>
+
+        <div class="calct-image">
+          <img class="keisan" src="./image/calc.jpeg" alt="" />
+        </div>
+      </div>
 
       <main style="display: none">
         <div class="input-area">
           <label for="shopname">店の名前</label>
           <select id="shopname">
-            <option value="a0">つじ田人形町店</option>
-            <option value="a1">麺屋周郷</option>
-            <option value="a2">六厘舎</option>
+            <option>つじ田人形町店</option>
+            <option>麺屋周郷</option>
+            <option>篝銀座店</option>
           </select>
-          <textarea id="text" placeholder="コメントを入力"></textarea>
-          <p>点数評価</p>
-          <p>（味）</p>
-          <select id="taste"></select>
-          <p>（アクセス性）</p>
-          <select id="access"></select>
-          <p>（待ち時間）</p>
-          <select id="time"></select>
-          <p>（コスト）</p>
-          <select id="cost"></select>
-          <p>（店舗効率）</p>
-          <select id="efficiency"></select>
+          <div class="swrap">
+            <textarea id="text" placeholder="コメントを入力"></textarea>
+            <p>測定時間値</p>
+            <p>（麺の湯がき時間）</p>
+            <select id="taste"></select>
+            <h2>秒</h2>
+            <p>（水気を切る時間）</p>
+            <select id="access"></select>
+            <h2>秒</h2>
+            <p>（皿準備時間）</p>
+            <select id="time"></select>
+            <h2>秒</h2>
+            <p>（盛り付け時間）</p>
+            <select id="cost"></select>
+            <h2>秒</h2>
+            <p>（歩行時間）</p>
+            <select id="efficiency"></select>
+            <h2>秒</h2>
+          </div>
         </div>
 
         <div class="button-area">
           <button id="save">評価実施</button>
-          <button id="clear">削除OK</button>
+          <button id="clear">評価クリア</button>
         </div>
+
+        <h3>あなたの店の正味作業率は？（％）</h3>
+
+        <div class="number" data-num="100">0</div>
 
         <div style="width: 600px">
           <canvas id="chart" width="600" height="300"></canvas>

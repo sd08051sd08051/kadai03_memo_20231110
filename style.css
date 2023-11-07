@@ -2,6 +2,79 @@
   width: 600px;
 }
 
+.ramen {
+  display: flex;
+  align-items: center;
+}
+
+.left-image {
+  margin-right: 10px;
+}
+
+.right-image1 {
+  margin-left: 10px;
+}
+
+.left-image,
+.right-image1 {
+  width: 200px; /* 幅を100pxに設定 */
+  height: 150px; /* 高さを100pxに設定 */
+  margin: 0 10px; /* 画像とテキストの間隔を調整 */
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+}
+
+.number {
+  font-family: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro",
+    "Hiragino Mincho ProN", "HGS明朝E", "ＭＳ Ｐ明朝", serif;
+  position: relative;
+  padding: 1.5rem 2rem;
+  -webkit-box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.number:before,
+.number:after {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  content: "";
+  background-image: -webkit-linear-gradient(
+    315deg,
+    #704308 0%,
+    #ffce08 40%,
+    #e1ce08 60%,
+    #704308 100%
+  );
+  background-image: linear-gradient(
+    135deg,
+    #704308 0%,
+    #ffce08 40%,
+    #e1ce08 60%,
+    #704308 100%
+  );
+}
+
+.number:before {
+  top: 0;
+}
+
+.number:after {
+  bottom: 0;
+}
+
 .shopname {
   text-align: center;
   font-size: 24px;
@@ -27,6 +100,23 @@ h1 {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
+}
+
+.right-image img {
+  width: 250px; /* 画像の幅を設定 */
+  height: 250px; /* 画像の高さを設定 */
+  margin-left: 20px; /* 画像と他の要素の間隔を調整 */
+  margin-left: 20px;
+}
+
+.pi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.keisan {
+  width: 300px;
 }
 
 input {

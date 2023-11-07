@@ -6,15 +6,40 @@ console.log(a);
 $("main").slideDown(1000);
 
 $("#save").on("click", function () {
-  const value = $("#value").val();
   const text = $("#text").val();
-  localStorage.setItem(value, text);
+  const shopname = $("#shopname option:selected").val();
+  const taste = parseInt($("#taste").val());
+  const access = parseInt($("#access").val());
+  const time = parseInt($("#time").val());
+  const cost = parseInt($("#cost").val());
+  const efficiency = parseInt($("#efficiency").val());
+
+  const A = taste + access + time + cost + efficiency;
+  const B = taste + cost;
+  const C = (100 * B) / A;
+  D = C.toFixed(1);
+
+  localStorage.setItem("shopname", shopname);
+  localStorage.setItem("text", text);
+  localStorage.setItem("taste", taste);
+  localStorage.setItem("access", access);
+  localStorage.setItem("time", time);
+  localStorage.setItem("cost", cost);
+  localStorage.setItem("efficiency", efficiency);
+
   const html = `
-  <li>
-  <p>${value}<p>
-              <p>${text}<p>
-                </li>
-                `;
+
+<li>
+    <p>店の名前: ${shopname}</p>
+    <p>コメント: ${text}</p>
+    <p>麺の湯がき: ${taste}　秒</p>
+    <p>水気を切る: ${access}　秒</p>
+    <p>皿準備: ${time}　秒</p>
+    <p>盛り付け: ${cost}　秒</p>
+    <p>歩行: ${efficiency}　秒</p>
+     <p>正味: ${D} ％</p>
+  </li>
+  `;
   $("#list").append(html);
 });
 
@@ -37,7 +62,7 @@ function Ratings(selectId) {
   const select = document.getElementById(selectId);
 
   if (select) {
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 60; i++) {
       const option = document.createElement("option");
       option.value = i;
       option.textContent = i;
@@ -47,6 +72,47 @@ function Ratings(selectId) {
 }
 //////////レビューレーティングエリア//////////
 
+//////////正味作業率計算//////////
+
+//////////正味作業率計算//////////
+
+//////////正味作業率表示//////////
+
+const shuffleNumberCounter = (target) => {
+  const targetNum = Number(target.getAttribute("data-num"));
+
+  if (!targetNum) {
+    return;
+  }
+
+  let counterData = null;
+  const speed = 5000 / targetNum;
+  let initNum = 0;
+
+  const countUp = () => {
+    if (Number.isInteger(targetNum)) {
+      target.innerHTML = initNum;
+    } else {
+      target.innerHTML = `${initNum}.${Math.floor(Math.random() * 9)}`;
+    }
+
+    initNum++;
+
+    if (initNum > targetNum) {
+      target.innerHTML = targetNum;
+      clearInterval(counterData);
+    }
+  };
+
+  counterData = setInterval(countUp, speed);
+};
+
+const target = document.querySelector(".number");
+
+shuffleNumberCounter(target);
+
+//////////正味作業率表示//////////
+
 //////////グラフ表示エリア(棒グラフ)//////////
 
 let ctx = $("#chart");
@@ -54,21 +120,21 @@ let mychart = new Chart(ctx, {
   type: "bar",
   //   描画するグラフの種類(pie:円グラフ、line:折れ線グラフ、bar:棒グラフ、など)
   data: {
-    labels: ["味", "アクセス性", "待ち時間", "コスト", "店舗効率"],
+    labels: ["麺の湯がき", "水気を切る", "皿準備", "盛り付け", "歩行"],
     datasets: [
       {
         label: "つじ田人形町店",
-        data: [4, 3, 5, 3, 5],
+        data: [40, 30, 50, 30, 50],
         backgroundColor: "rgba(176, 110,  30, 1)",
       },
       {
         label: "麺屋周郷",
-        data: [5, 2, 2, 4, 4],
+        data: [50, 20, 20, 40, 40],
         backgroundColor: "rgba( 31, 167, 165, 1)",
       },
       {
-        label: "六厘舎",
-        data: [5, 5, 1, 2, 5],
+        label: "篝銀座店",
+        data: [50, 50, 10, 20, 50],
         backgroundColor: "rgba(241, 107, 141, 1)",
       },
     ],
@@ -82,9 +148,9 @@ let mychart = new Chart(ctx, {
       yAxes: [
         {
           ticks: {
-            suggestedMax: 5,
+            suggestedMax: 60,
             suggestedMin: 0,
-            stepSize: 1,
+            stepSize: 10,
             callback: function (value, index, values) {
               return value + "";
             },
@@ -94,88 +160,3 @@ let mychart = new Chart(ctx, {
     },
   },
 });
-
-//////////グラフ表示エリア(棒グラフ)//////////
-
-//////////グラフ表示エリア(円グラフ)//////////
-
-// let pichart = $("#pichart");
-// let mychart2 = new Chart(ctx, {
-//   type: "pie",
-//   //   描画するグラフの種類(pie:円グラフ、line:折れ線グラフ、bar:棒グラフ、など)
-//   data: {
-//     labels: ["正味作業", "付随作業"],
-//     datasets: [
-//       {
-//         label: "つじ田人形町店",
-//         data: [4, 3],
-//         backgroundColor: "rgba(176, 110,  30, 1)",
-//       },
-//       // {
-//       //   label: "麺屋周郷",
-//       //   data: [5, 2],
-//       //   backgroundColor: "rgba( 31, 167, 165, 1)",
-//       // },
-//       // {
-//       //   label: "六厘舎",
-//       //   data: [5, 5],
-//       //   backgroundColor: "rgba(241, 107, 141, 1)",
-//       // },
-//     ],
-//   },
-//   options: {
-//     title: {
-//       display: true,
-//       text: "つけ麺の店舗比較表",
-//     },
-//     scales: {
-//       yAxes: [
-//         {
-//           ticks: {
-//             suggestedMax: 5,
-//             suggestedMin: 0,
-//             stepSize: 1,
-//             callback: function (value, index, values) {
-//               return value + "";
-//             },
-//           },
-//         },
-//       ],
-//     },
-//   },
-// });
-//////////グラフ表示エリア(円グラフ)//////////
-
-// function test() {
-//   const str = "I don't know func";
-//   alert(str);
-// }
-// test(); 繰り返して使うものはなるべくfuncにしておくべき
-
-// function add() {
-//   const n = 10 + 10;
-//   alert(n);
-// }
-// add();
-
-//繰り返し処理で、各要素を評価する
-// function selectBoxCreate(start, end) {
-//   let str = "";
-//   for (let i = start; i < end; i++) {
-//     str += `<option>${i}</option>`;
-//   }
-//   return str;
-
-// }
-
-// selectBoxCreate{1970,3000};
-// selectBoxCreate{1,13};
-// selectBoxCreate{1,32};
-
-// function addition(a, b) {
-//   const n = a + b;
-//   return n;
-// }
-
-// const num = addition(100, 300);
-// console.log(num);
