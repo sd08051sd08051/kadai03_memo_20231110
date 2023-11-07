@@ -32,6 +32,7 @@
 - [参考記事]
 - グラフ表示　https://www.chartjs.org/
 - マージする時の設定　https://zenn.dev/ttak/articles/025319bf5371b0
+- グラフの値を更新　https://www.youtube.com/watch?v=-FYPoMKnVOw&t=5s
 
 
 ### おまけ
