@@ -33,6 +33,8 @@
 - グラフ表示　https://www.chartjs.org/
 - マージする時の設定　https://zenn.dev/ttak/articles/025319bf5371b0
 - グラフの値を更新　https://www.youtube.com/watch?v=-FYPoMKnVOw&t=5s
+- グラフの値を更新２
+- https://khirok.hatenadiary.jp/entry/2020/05/02/%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%8C%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%9F%E5%80%A4%E3%82%92%E3%82%B0%E3%83%A9%E3%83%95%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B
 
 
 ### おまけ
