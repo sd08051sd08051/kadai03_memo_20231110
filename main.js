@@ -116,6 +116,7 @@ shuffleNumberCounter(target);
 //////////グラフ表示エリア(棒グラフ)//////////
 
 let ctx = $("#chart");
+
 let mychart = new Chart(ctx, {
   type: "bar",
   //   描画するグラフの種類(pie:円グラフ、line:折れ線グラフ、bar:棒グラフ、など)
