@@ -5,6 +5,10 @@ console.log(a);
 //////////レビュー入力エリア//////////
 $("main").slideDown(1000);
 
+// *****************************************
+let targetnumber = document.querySelector(".number");
+// *****************************************
+
 $("#save").on("click", function () {
   const text = $("#text").val();
   const shopname = $("#shopname option:selected").val();
@@ -17,7 +21,7 @@ $("#save").on("click", function () {
   const A = taste + access + time + cost + efficiency;
   const B = taste + cost;
   const C = (100 * B) / A;
-  D = C.toFixed(1);
+  const D = C.toFixed(1);
 
   localStorage.setItem("shopname", shopname);
   localStorage.setItem("text", text);
@@ -124,7 +128,7 @@ let mychart = new Chart(ctx, {
   type: "bar",
   //   描画するグラフの種類(pie:円グラフ、line:折れ線グラフ、bar:棒グラフ、など)
   data: {
-    labels: ["茹で時間", "水気を切る", "皿準備", "盛り付け", "歩行"],
+    labels: ["茹で", "湯ぎり", "皿準備", "盛付", "歩行"],
     datasets: [
       {
         label: "つじ田人形町店",
