@@ -4,6 +4,7 @@ console.log(a);
 
 //////////レビュー入力エリア//////////
 $("main").slideDown(1000);
+let D;
 
 //////////////////////////
 
@@ -19,7 +20,7 @@ $("#save").on("click", function () {
   const A = taste + access + time + cost + efficiency;
   const B = taste + cost;
   const C = (100 * B) / A;
-  const D = C.toFixed(1);
+  D = C.toFixed(1);
 
   localStorage.setItem("shopname", shopname);
   localStorage.setItem("text", text);
@@ -44,8 +45,18 @@ $("#save").on("click", function () {
   `;
 
   $("#list").append(html);
-  mychart.data.datasets[0].data = [taste, access, time, cost, efficiency];
+  if (shopname == "つじ田人形町店") {
+    mychart.data.datasets[0].data = [taste, access, time, cost, efficiency];
+  } else if (shopname == "麺屋周郷") {
+    mychart.data.datasets[1].data = [taste, access, time, cost, efficiency];
+  } else {
+    mychart.data.datasets[2].data = [taste, access, time, cost, efficiency];
+  }
   mychart.update();
+
+  const target = document.querySelector(".number");
+
+  shuffleNumberCounter(target);
 });
 
 $("#clear").on("click", function () {
@@ -84,7 +95,7 @@ function Ratings(selectId) {
 //////////正味作業率表示//////////
 
 const shuffleNumberCounter = (target) => {
-  const targetNum = Number(target.getAttribute("data-num"));
+  const targetNum = D;
 
   if (!targetNum) {
     return;
@@ -112,9 +123,34 @@ const shuffleNumberCounter = (target) => {
   counterData = setInterval(countUp, speed);
 };
 
-const target = document.querySelector(".number");
+// const shuffleNumberCounter = (targetNum) => {
+//   // const targetNum = Number(target.getAttribute("data-num"));
 
-shuffleNumberCounter(target);
+//   if (!targetNum) {
+//     return;
+//   }
+
+//   let counterData = null;
+//   const speed = 2000 / targetNum;
+//   let initNum = 0;
+
+//   const countUp = () => {
+//     if (Number.isInteger(targetNum)) {
+//       targetmei.innerHTML = initNum;
+//     } else {
+//       targetmei.innerHTML = `${initNum}.${Math.floor(Math.random() * 9)}`;
+//     }
+
+//     initNum++;
+
+//     if (initNum > targetNum) {
+//       targetmei.innerHTML = targetNum;
+//       clearInterval(counterData);
+//     }
+//   };
+
+//   counterData = setInterval(countUp, speed);
+// };
 
 //////////正味作業率表示//////////
 
@@ -135,12 +171,12 @@ let mychart = new Chart(ctx, {
       },
       {
         label: "麺屋周郷",
-        data: [30, 20, 20, 32, 10],
+        data: [taste, access, time, cost, efficiency],
         backgroundColor: "rgba( 31, 167, 165, 1)",
       },
       {
         label: "篝銀座店",
-        data: [27, 45, 18, 15, 16],
+        data: [taste, access, time, cost, efficiency],
         backgroundColor: "rgba(241, 107, 141, 1)",
       },
     ],
