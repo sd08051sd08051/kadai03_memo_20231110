@@ -5,9 +5,7 @@ console.log(a);
 //////////レビュー入力エリア//////////
 $("main").slideDown(1000);
 
-// *****************************************
-let targetnumber = document.querySelector(".number");
-// *****************************************
+//////////////////////////
 
 $("#save").on("click", function () {
   const text = $("#text").val();
